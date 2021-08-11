@@ -30,7 +30,7 @@ const sendTo = async (to, title, content) => {
 }
 
 exports.handler = async (req) => {
-  const { email, code } = JSON.parse(req.body);
+  const { email, code } = req.queryStringParameters;
   const title = `Your register verify code`;
   const content = `Your register verify code is: ${code}`;
 
