@@ -23,7 +23,7 @@ const sendTo = async (to, title, content) => {
     from: `"Easydeal Emailer" <${EMAIL_ACCOUNT}>`,
     to: `${to}`,
     subject: title,
-    text: content
+    html: content,
   });
 
   return info;
@@ -32,7 +32,7 @@ const sendTo = async (to, title, content) => {
 exports.handler = async (req) => {
   const { email, code } = req.queryStringParameters;
   const title = `Your register verify code`;
-  const content = `Your register verify code is: ${code}`;
+  const content = `Hello~Your register verify code is: <b style="font-size:18px">${code}</b>`;
 
   let body;
   try {
